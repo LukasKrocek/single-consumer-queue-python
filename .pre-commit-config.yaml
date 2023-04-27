@@ -1,0 +1,44 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+default_language_version:
+    python: python3.10
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.1.0
+    hooks:
+    -   id: mixed-line-ending
+    -   id: check-added-large-files
+    -   id: end-of-file-fixer
+    -   id: trailing-whitespace
+    -   id: check-ast
+-   repo: https://github.com/psf/black
+    rev: 23.1.0
+    hooks:
+    -   id: black
+        args:
+            - --line-length=120
+            - --target-version=py310
+- repo: https://github.com/charliermarsh/ruff-pre-commit
+  rev: 'v0.0.254'
+  hooks:
+    - id: ruff
+      args:
+        - --fix
+        - --show-fixes
+        - --exit-non-zero-on-fix
+        - --line-length=120
+        - --verbose
+        - --select=A,B,C,E,F,I,M,N,Q,R,T,U,W
+        - --ignore=A003,B023,B024,B008
+- repo: local
+  hooks:
+    - id: mypy
+      name: mypy
+      entry: mypy
+      language: system
+      types: [python]
+      pass_filenames: false
+      args:
+        [
+          "--strict", "--show-error-codes", "single_consumer_queue", "tests"
+        ]

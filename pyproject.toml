@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "single-consumer-queue"
+version = "1.0.0"
+description = "Asyncio high-performance single consumer queue"
+authors = ["Lukas Krocek <krocek.lukas@email.cz>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "single_consumer_queue"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.dev-dependencies]
+pytest = "*"
+pytest-asyncio = "*"
+pytest-cov = "*"
+pre-commit = "*"
+mypy = "*"
+
+[tool.pytest.ini_options]
+asyncio_mode="strict"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
