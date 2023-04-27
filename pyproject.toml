@@ -1,11 +1,13 @@
 [tool.poetry]
 name = "single-consumer-queue"
-version = "1.0.0"
+version = "1.1.1"
 description = "Asyncio high-performance single consumer queue"
 authors = ["Lukas Krocek <krocek.lukas@email.cz>"]
+homepage = "https://github.com/LukasKrocek/single-consumer-queue-python"
 license = "MIT"
 readme = "README.md"
 packages = [{include = "single_consumer_queue"}]
+include = ["py.typed"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
